@@ -5,7 +5,7 @@ var FPS = 60;
 
 var canvas;
 var context;
-var dot;
+var img;
 
 init();
 
@@ -24,7 +24,7 @@ function init() {
 }
 
 function createTrail() {
-    dot = {
+    img = {
         x: 100,
         y: 100,
         speed: 3,
@@ -33,15 +33,15 @@ function createTrail() {
 }
 
 function updatePosition() {
-    var dx = dot.x + dot.speed * Math.cos(dot.direction);
-    var dy = dot.y + dot.speed * Math.sin(dot.direction);
+    var dx img.x + img.speed * Math.cos(img.direction);
+    var dy = img.y + img.speed * Math.sin(img.direction);
 
     if (dx < 0 || dx > CANVAS_WIDTH || dy < 0 || dy > CANVAS_HEIGHT) {
-        dot.direction = Math.PI * 2 * Math.random();
+        img.direction = Math.PI * 2 * Math.random();
         updatePosition();
     } else {
-        dot.x = dx;
-        dot.y = dy;
+        img.x = dx;
+        img.y = dy;
     }
 }
 
@@ -52,10 +52,10 @@ function loop() {
     context.fillStyle = 'rgba(255, 255, 255, .05)';
     context.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw the dot
+    // Draw the img
     context.beginPath();
     context.fillStyle = '#ff0000';
-    context.moveTo(dot.x, dot.y);
-    context.arc(dot.x, dot.y, 3, 0, Math.PI * 2, true);
+    context.moveTo(img.x, img.y);
+    context.arc(img.x, img.y, 3, 0, Math.PI * 2, true);
     context.fill();
 }
