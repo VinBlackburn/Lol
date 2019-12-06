@@ -33,7 +33,7 @@ function createTrail() {
 }
 
 function updatePosition() {
-    var dx img.x + img.speed * Math.cos(img.direction);
+    var dx, x, img, speed, Math, cos, img, direction, ;
     var dy = img.y + img.speed * Math.sin(img.direction);
 
     if (dx < 0 || dx > CANVAS_WIDTH || dy < 0 || dy > CANVAS_HEIGHT) {
